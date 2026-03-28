@@ -19,4 +19,4 @@ This system utilizes an HC-SR04 Ultrasonic Sensor to calculate the proximity of 
 - **Visual Feedback:** Adding an I2C LCD to display warnings without a computer.
 
 ##  Simulation Preview
-![Simulation Demo](simulation_demo.png)
+![Simulation Demo](simulation_demo.jpg)
