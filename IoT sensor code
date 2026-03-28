@@ -1,0 +1,35 @@
+#define trigpin 3
+#define echopin 2
+
+long duration;
+int distance; 
+
+void setup() {
+  pinMode(trigpin, OUTPUT); 
+  pinMode(echopin, INPUT); 
+  Serial.begin(9600);
+}
+
+void loop() { 
+  // Clears the trigpin condition 
+  digitalWrite(trigpin, LOW); 
+  delayMicroseconds(2);
+
+  // Sets the trigpin HIGH (ACTIVE) for 10 microseconds 
+  digitalWrite(trigpin, HIGH); 
+  delayMicroseconds(10);
+  digitalWrite(trigpin, LOW);
+
+  // Reads echopin, returns the travel time in microseconds
+  duration = pulseIn(echopin, HIGH);
+
+  // Calculating the distance 
+  distance = duration * 0.034 / 2;
+
+  // Displays the distance on the Serial Monitor 
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  
+  delay(500); // Wait half a second before next reading
+}
